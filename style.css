@@ -19,7 +19,15 @@
     --type-steel:    #B7B7CE;
     --type-fairy:    #D685AD;
   }
-
+nav > a {
+    text-decoration: none;
+    color: white;
+    font-size: medium;
+    transition: all 0.3s ease-in-out;
+}
+nav > a:hover {
+    border-bottom: 1px solid white; 
+}
 .pokedex-card-c {
     background: linear-gradient(135deg, #f9d423, #ff4e50);
     border-radius: 1rem;
