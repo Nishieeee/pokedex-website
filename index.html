@@ -1,31 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PokeDex</title>
     <!-- css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <!--bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <h2 id="poke-name"></h2>
-    <p><strong>Type:</strong> <span id="poke-type"></span></p>
-    <img id="poke-img" src="" alt="Pokemon Sprite">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header
+      class="bg-danger p-3 d-flex align-items-center justify-content-between"
+    >
+      <div
+        class="logo p-2 m-0 d-flex align-items-center justify-content-center"
+      >
+        <object
+          data="pokeball-pokemon-svgrepo-com.svg"
+          type="image/svg+xml"
+          height="50px"
+          width="50px"
+        ></object>
+        <h5 class="text-white mx-2 my-3">PokeDex</h5>
+      </div>
+      <div class="search">
+        <input
+          type="search"
+          name="search-poke"
+          id="search-poke"
+          class="form-control"
+          placeholder="search"
+        />
+        <i class="bi bi-search"></i>
+      </div>
+    </header>
 
-    
-    <script>
-        fetch('https://pokeapi.co/api/v2/pokemon/charmander')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("poke-name").textContent = data.name;
-            document.getElementById("poke-type").textContent = data.types[0].type.name;
-            document.getElementById("poke-img").src = data.sprites.front_default;
-        });
-    </script>
- <!-- jQuery -->
+    <main class="p-3">
+      <div class="row">
+
+        <!--charizard -->
+        <div class="pokedex-card-c container col-xxl-6 col-lg-4 col-sm-3 h-50 d-flex flex-column align-items-center p-0">
+          <div class="h-25 p-3">
+            <img id="poke-charizardimg" src="" alt="Pokemon Sprite" />
+          </div>
+          <div class="poke-info-card bg-white h-75 w-100 m-0 px-2 py-3 shadow-sm">
+            <h2 id="poke-charizard"></h2>
+            <p><strong>Type:</strong> <span id="poke-type"></span></p>
+            <div class="stats">
+              <p>hp: <span id="stat-hp"></span></p>
+              <p>attk: <span id="stat-attack"></span></p>
+              <p>def: <span id="stat-defense"></span></p>
+              <p>sp attack: <span id="stat-special_attack"></span></p>
+              <p>sp def: <span id="stat-special_defense"></span></p>
+              <p>spd: <span id="stat-speed"></span></p>
+            </div>
+          </div>
+        </div>
+        <!--Greninja-->
+        <div class="pokedex-card-g container col-xxl-6 col-lg-4 col-sm-3 h-50 d-flex flex-column align-items-center p-0">
+            <div class="h-25 p-3">
+              <img id="poke-greninja-img" src="" alt="Pokemon Sprite" />
+            </div>
+            <div class="poke-info-card bg-white h-75 w-100 m-0 px-2 py-3 shadow-sm">
+              <h2 id="poke-greninja"></h2>
+              <p><strong>Type:</strong> <span id="poke-type-g"></span></p>
+              <div class="stats">
+                <p>hp: <span id="stat-hp-g"></span></p>
+                <p>attk: <span id="stat-attack-g"></span></p>
+                <p>def: <span id="stat-defense-g"></span></p>
+                <p>sp attack: <span id="stat-special_attack-g"></span></p>
+                <p>sp def: <span id="stat-special_defense-g"></span></p>
+                <p>spd: <span id="stat-speed-g"></span></p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </main>
+    <script></script>
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

@@ -1,0 +1,49 @@
+
+:root {
+    --type-normal:   #A8A77A;
+    --type-fire:     #EE8130;
+    --type-water:    #6390F0;
+    --type-electric: #F7D02C;
+    --type-grass:    #7AC74C;
+    --type-ice:      #96D9D6;
+    --type-fighting: #C22E28;
+    --type-poison:   #A33EA1;
+    --type-ground:   #E2BF65;
+    --type-flying:   #A98FF3;
+    --type-psychic:  #F95587;
+    --type-bug:      #A6B91A;
+    --type-rock:     #B6A136;
+    --type-ghost:    #735797;
+    --type-dragon:   #6F35FC;
+    --type-dark:     #705746;
+    --type-steel:    #B7B7CE;
+    --type-fairy:    #D685AD;
+  }
+
+.pokedex-card-c {
+    background: linear-gradient(135deg, #f9d423, #ff4e50);
+    border-radius: 1rem;
+
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+  .pokedex-card-g {
+    background: linear-gradient(135deg, var(--type-water), var(--type-normal));
+    border-radius: 1rem;
+
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+
+  .types .type {
+    background-color: yellow;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+  }
+  .stats .bar {
+    height: 8px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+.poke-info-card {
+    border-radius: 20px 20px 0 0;
+}
