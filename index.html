@@ -27,11 +27,13 @@
         ></object>
         <h5 class="text-white mx-2 my-3">PokeDex</h5>
       </div>
-        <nav class="w-25 txt-white fw-bold px-2 py-2 d-flex g-1 align-items-center justify-content-between">
-          <a href="#" class="txt-white fw-bold px-4 py-2">All</a>
-          <a href="#" class="txt-white fw-bold px-3 py-2">My Top 5</a>
-          <a href="#" class="txt-white fw-bold px-3 py-2">About</a>
-        </nav>
+      <nav
+        class="w-25 txt-white fw-bold px-2 py-2 d-flex g-1 align-items-center justify-content-between"
+      >
+        <a href="#" class="txt-white fw-bold px-4 py-2">All</a>
+        <a href="#" class="txt-white fw-bold px-3 py-2">My Top 5</a>
+        <a href="#" class="txt-white fw-bold px-3 py-2">About</a>
+      </nav>
       <div class="search">
         <input
           type="search"
@@ -44,51 +46,156 @@
       </div>
     </header>
 
-    <main class="p-3">
-      <div class="row">
-
-        <!--charizard -->
-        <div class="pokedex-card-c container col-xxl-6 col-lg-4 col-sm-3 h-50 d-flex flex-column align-items-center p-0">
-          <!--img sprite-->
-          <div class="h-100 p-3">
-            <img id="poke-charizardimg" src="" alt="Pokemon Sprite" />
-          </div>
-          <!--info card-->
-          <div class="poke-info-card bg-white h-25 w-100 m-0 px-2 py-3 shadow-sm">
-            <h2 id="poke-charizard"></h2>
-            <p><strong>Type:</strong> <span id="poke-type"></span></p>
-            <div class="stats">
-              <p>hp: <span id="stat-hp"></span></p>
-              <p>attk: <span id="stat-attack"></span></p>
-              <p>def: <span id="stat-defense"></span></p>
-              <p>sp attack: <span id="stat-special_attack"></span></p>
-              <p>sp def: <span id="stat-special_defense"></span></p>
-              <p>spd: <span id="stat-speed"></span></p>
-            </div>
-          </div>
-        </div>
-        <!--Greninja-->
-        <div class="pokedex-card-g container col-xxl-6 col-lg-4 col-sm-3 h-50 d-flex flex-column align-items-center p-0">
-          <!--img sprite--> 
-          <div class="h-25 p-3">
-              <img id="poke-greninja-img" src="" alt="Pokemon Sprite" />
+    <main class="p-3 border">
+      <section class="topFive">
+        <div class="row">
+          <!--pokemon no.1-->
+          <div
+            class="pokedex-card1 rounded-3 container shadow col-6 col-sm-4 col-md-3 col-lg-2 h-50 d-flex flex-column align-items-center p-0"
+          >
+            
+            <!--img sprite-->
+            <div class="sprite z-3">
+              <img z-3 id="poke-sprite1" src="" alt="Pokemon Sprite" />
             </div>
             <!--info card-->
-            <div class="poke-info-card bg-white h-75 w-100 m-0 px-2 py-3 shadow-sm">
-              <h2 id="poke-greninja"></h2> <!--name-->
-              <p><strong>Type:</strong> <span id="poke-type-g"></span></p> <!--type-->
-              <div class="stats"> <!--stats-->
-                <p>hp: <span id="stat-hp-g"></span></p>
-                <p>attk: <span id="stat-attack-g"></span></p>
-                <p>def: <span id="stat-defense-g"></span></p>
-                <p>sp attack: <span id="stat-special_attack-g"></span></p>
-                <p>sp def: <span id="stat-special_defense-g"></span></p>
-                <p>spd: <span id="stat-speed-g"></span></p>
+            <div
+              class="poke-info-card z-2 bg-white h-25 w-100 m-0 px-2 py-3 shadow-sm"
+            >
+              <h2 id="poke-name1"></h2>
+              <p><strong>Type:</strong> <span id="poke-type1"></span></p>
+              <div class="stats p-3 row">
+                <p class="col-6">hp: <span id="stat-hp1"></span></p>
+                <p class="col-6">attk: <span id="stat-attack1"></span></p>
+                <p class="col-6">def: <span id="stat-defense1"></span></p>
+                <p class="col-6">
+                  sp attack: <span id="stat-special_attack1"></span>
+                </p>
+                <p class="col-6">
+                  sp def: <span id="stat-special_defense1"></span>
+                </p>
+                <p class="col-6">spd: <span id="stat-speed1"></span></p>
               </div>
             </div>
           </div>
-      </div>
+          <!--pokemon no.2-->
+          <div
+            class="pokedex-card2 rounded-3 shadow container col-6 col-sm-4 col-md-3 col-lg-2 h-50 d-flex flex-column align-items-center p-0"
+          >
+            <!--img sprite-->
+            <div class="sprite">
+              <img id="poke-sprite2" src="" alt="Pokemon Sprite" />
+            </div>
+            <!--info card-->
+            <div
+              class="poke-info-card bg-white h-25 w-100 m-0 px-2 py-3 shadow-sm"
+            >
+              <h2 id="poke-name2"></h2>
+              <p><strong>Type:</strong> <span id="poke-type2"></span></p>
+              <div class="stats p-3 row">
+                <p class="col-6">hp: <span id="stat-hp2"></span></p>
+                <p class="col-6">attk: <span id="stat-attack2"></span></p>
+                <p class="col-6">def: <span id="stat-defense2"></span></p>
+                <p class="col-6">
+                  sp attack: <span id="stat-special_attack2"></span>
+                </p>
+                <p class="col-6">
+                  sp def: <span id="stat-special_defense2"></span>
+                </p>
+                <p class="col-6">spd: <span id="stat-speed2"></span></p>
+              </div>
+            </div>
+          </div>
+          <!--Pokemon no.3-->
+          <div
+            class="pokedex-card3 rounded-3 container shadow col-6 col-sm-4 col-md-3 col-lg-2 h-50 d-flex flex-column align-items-center p-0"
+          >
+            <!--img sprite-->
+            <div class="sprite">
+              <img id="poke-sprite3" src="" alt="Pokemon Sprite" />
+            </div>
+            <!--info card-->
+            <div
+              class="poke-info-card bg-white h-25 w-100 m-0 px-2 py-3 shadow-sm"
+            >
+              <h2 id="poke-name3"></h2>
+              <p><strong>Type:</strong> <span id="poke-type3"></span></p>
+              <div class="stats p-3 row">
+                <p class="col-6">hp: <span id="stat-hp3"></span></p>
+                <p class="col-6">attk: <span id="stat-attack3"></span></p>
+                <p class="col-6">def: <span id="stat-defense3"></span></p>
+                <p class="col-6">
+                  sp attack: <span id="stat-special_attack3"></span>
+                </p>
+                <p class="col-6">
+                  sp def: <span id="stat-special_defense3"></span>
+                </p>
+                <p class="col-6">spd: <span id="stat-speed3"></span></p>
+              </div>
+            </div>
+          </div>
+          <!--Pokemon no.4-->
+          <div
+            class="pokedex-card4 rounded-3 shadow container col-6 col-sm-4 col-md-3 col-lg-2 h-50 d-flex flex-column align-items-center p-0"
+          >
+            <!--img sprite-->
+            <div class="sprite">
+              <img id="poke-sprite4" src="" alt="Pokemon Sprite" />
+            </div>
+            <!--info card-->
+            <div
+              class="poke-info-card bg-white h-25 w-100 m-0 px-2 py-3 shadow-sm"
+            >
+              <h2 id="poke-name4"></h2>
+              <p><strong>Type:</strong> <span id="poke-type4"></span></p>
+              <div class="stats p-3 row">
+                <p class="col-6">hp: <span id="stat-hp4"></span></p>
+                <p class="col-6">attk: <span id="stat-attack4"></span></p>
+                <p class="col-6">def: <span id="stat-defense4"></span></p>
+                <p class="col-6">
+                  sp attack: <span id="stat-special_attack4"></span>
+                </p>
+                <p class="col-6">
+                  sp def: <span id="stat-special_defense4"></span>
+                </p>
+                <p class="col-6">spd: <span id="stat-speed4"></span></p>
+              </div>
+            </div>
+          </div>
+          <!--pokemon no.5-->
+          <div
+            class="pokedex-card5 rounded-3 shadow container col-6 col-sm-4 col-md-3 col-lg-2 col-sm-3 h-50 d-flex flex-column align-items-center p-0"
+          >
+            <!--img sprite-->
+            <div class="sprite">
+              <img id="poke-sprite5" src="" alt="Pokemon Sprite" />
+            </div>
+            <!--info card-->
+            <div
+              class="poke-info-card bg-white h-25 w-100 m-0 px-2 py-3 shadow-sm"
+            >
+              <h2 id="poke-name5"></h2>
+              <p><strong>Type:</strong> <span id="poke-type5"></span></p>
+              <div class="stats p-3 row">
+                <p class="col-6">hp: <span id="stat-hp5"></span></p>
+                <p class="col-6">attk: <span id="stat-attack5"></span></p>
+                <p class="col-6">def: <span id="stat-defense5"></span></p>
+                <p class="col-6">
+                  sp attack: <span id="stat-special_attack5"></span>
+                </p>
+                <p class="col-6">
+                  sp def: <span id="stat-special_defense5"></span>
+                </p>
+                <p class="col-6">spd: <span id="stat-speed5"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+    <footer>
+      <p class="footer text-center">@2025 PokeAPI Developer: Clein</p>
+    </footer>
     <script></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

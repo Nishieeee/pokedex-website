@@ -19,6 +19,28 @@
     --type-steel:    #B7B7CE;
     --type-fairy:    #D685AD;
   }
+.lightning-type {
+  background: var(--type-electric);
+
+}
+.fire-type {
+  background-color: var(--type-fire);
+}
+.water-type {
+  background-color: var(--type-water);
+}
+.grass-type {
+  background: var(--type-grass);
+}
+.psychic-type {
+  background-color: var(--type-psychic);
+}
+span {
+  font-size: smaller;
+}
+main {
+  height: 100vh;
+}
 nav > a {
     text-decoration: none;
     color: white;
@@ -28,11 +50,13 @@ nav > a {
 nav > a:hover {
     border-bottom: 1px solid white; 
 }
-.pokedex-card-c {
-    background: linear-gradient(135deg, #f9d423, #ff4e50);
+.pokedex-card {   
     border-radius: 1rem;
-
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+  .sprite {
+    position: relative;
+    top: 25px;
   }
   .pokedex-card-g {
     background: linear-gradient(135deg, var(--type-water), var(--type-normal));
