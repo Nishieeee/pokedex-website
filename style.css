@@ -83,6 +83,7 @@ nav > a:hover {
   .sprite {
     position: relative;
     top: 25px;
+    
   }
   .pokedex-card-g {
     background: linear-gradient(135deg, var(--type-water), var(--type-normal));

@@ -11,7 +11,7 @@ $("#topFiveNav").click(() => {
     $("#topFive").show();
     $("#topFiveNav").addClass("page-item-active");
 
-    const topFive = ["greninja", "blastoise", "mewtwo", "charizard", "blaziken"];
+    const topFive = ["greninja", "blastoise", "mewtwo", "38", "blaziken"];
 
     // Loop through each Pokémon and process them one by one
     topFive.forEach(async (pokemon, index) => {
