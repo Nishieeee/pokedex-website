@@ -35,14 +35,28 @@
 .psychic-type {
   background-color: var(--type-psychic);
 }
-span, p {
-  font-size: smaller;
-}
-main {
-  height: 80vh;
-  overflow-y: scroll;
-}
+p {
+  font-size: small;
 
+span {
+  font-size: small;
+  padding: 2px 5px;
+  border-radius: 10px;
+  color: white;
+}}
+main {
+  height: 75vh;
+  overflow-y: scroll;
+  background-image: url('pokeball-bg.svg');
+  background-size: auto;
+  background-position: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.page-item-active {
+  border-bottom: 3px solid rgb(255, 253, 253); 
+}
 .pokedex-card1,
 .pokedex-card2,
 .pokedex-card3,

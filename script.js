@@ -6,7 +6,11 @@ function fetchPokemonSpecies(pokemonID) {
     return $.getJSON(`https://pokeapi.co/api/v2/pokemon-species/${pokemonID}`);
 }
 
-$("document").ready(() => {
+$("#topFive").hide();
+$("#topFiveNav").click(() => {
+    $("#topFive").show();
+    $("#topFiveNav").addClass("page-item-active");
+
     const topFive = ["greninja", "blastoise", "mewtwo", "charizard", "blaziken"];
 
     // Loop through each Pokémon and process them one by one
@@ -23,11 +27,11 @@ $("document").ready(() => {
             //update ui
             // Add type-specific class to the card
             $(`.pokedex-card${count}`).addClass(`${data.types[0].type.name}-type`);
-
+            
             // Set Pokémon name and type
             $(`#poke-name${count}`).text(data.name);
             $(`#poke-type${count}`).text(data.types[0].type.name);
-
+            $(`#poke-type${count}`).addClass(`${data.types[0].type.name}-type`);
             // Find the English description
             let description = "No Description Available";
             for (let entry of speciesData.flavor_text_entries) {

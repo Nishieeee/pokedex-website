@@ -31,7 +31,7 @@
         class="w-25 txt-white fw-bold px-2 py-2 d-flex g-1 align-items-center justify-content-between"
       >
         <a href="#" class="txt-white fw-bold px-4 py-2">All</a>
-        <a href="#" class="txt-white fw-bold px-3 py-2">My Top 5</a>
+        <a href="#topFive" id="topFiveNav" class="txt-white fw-bold px-3 py-2">My Top 5</a>
         <a href="#" class="txt-white fw-bold px-3 py-2">About</a>
       </nav>
       <div class="search">
@@ -47,18 +47,18 @@
     </header>
 
     <main class="p-3 border">
-      <section class="topFive">
-        <div class="row">
-          <!--pokemon no.1-->
+      <section id="all" class="all">
+
+      </section>
+      <section id="topFive" class="topFive">
+        <div class="row gx-3 gy-4">
+          <!-- Pokemon no.1 -->
           <div
-            class="pokedex-card1 rounded-3 container shadow col-6 col-sm-4 col-md-3 col-lg-2 d-flex flex-column align-items-center p-0"
+            class="pokedex-card1 rounded-3 shadow col-6 col-sm-4 col-md-3 col-lg-2 d-flex flex-column align-items-center p-0"
           >
-            
-            <!--img sprite-->
             <div class="sprite z-3">
-              <img z-3 id="poke-sprite1" src="" alt="Pokemon Sprite" />
+              <img id="poke-sprite1" src="" alt="Pokemon Sprite" />
             </div>
-            <!--info card-->
             <div
               class="poke-info-card z-2 bg-white h-100 w-100 m-0 px-2 py-3 shadow-sm"
             >
@@ -67,32 +67,30 @@
               <p id="poke-description1"></p>
             </div>
           </div>
-          <!--pokemon no.2-->
+          <!-- Pokemon no.2 -->
           <div
-            class="pokedex-card2 rounded-3 shadow container col-6 col-sm-4 col-md-3 col-lg-2 d-flex flex-column align-items-center p-0"
+            class="pokedex-card2 rounded-3 shadow col-6 col-sm-4 col-md-3 col-lg-2 d-flex flex-column align-items-center p-0"
           >
-            <!--img sprite-->
             <div class="sprite">
               <img id="poke-sprite2" src="" alt="Pokemon Sprite" />
             </div>
-            <!--info card-->
             <div
               class="poke-info-card bg-white h-100 w-100 m-0 px-2 py-3 shadow-sm"
             >
               <h2 id="poke-name2"></h2>
               <p><strong>Type:</strong> <span id="poke-type2"></span></p>
-              <p id="poke-description2"></p>
+              <p id="poke-description2">
+                big man blastoise~ big man blastoise~
+              </p>
             </div>
           </div>
-          <!--Pokemon no.3-->
+          <!-- Pokemon no.3 -->
           <div
-            class="pokedex-card3 rounded-3 container shadow col-6 col-sm-4 col-md-3 col-lg-2 d-flex flex-column align-items-center p-0"
+            class="pokedex-card3 rounded-3 shadow col-6 col-sm-4 col-md-3 col-lg-2 d-flex flex-column align-items-center p-0"
           >
-            <!--img sprite-->
             <div class="sprite">
               <img id="poke-sprite3" src="" alt="Pokemon Sprite" />
             </div>
-            <!--info card-->
             <div
               class="poke-info-card bg-white h-100 w-100 m-0 px-2 py-3 shadow-sm"
             >
@@ -101,15 +99,13 @@
               <p id="poke-description3"></p>
             </div>
           </div>
-          <!--Pokemon no.4-->
+          <!-- Pokemon no.4 -->
           <div
-            class="pokedex-card4 rounded-3 shadow container col-6 col-sm-4 col-md-3 col-lg-2 d-flex flex-column align-items-center p-0"
+            class="pokedex-card4 rounded-3 shadow col-6 col-sm-4 col-md-3 col-lg-2 d-flex flex-column align-items-center p-0"
           >
-            <!--img sprite-->
             <div class="sprite">
               <img id="poke-sprite4" src="" alt="Pokemon Sprite" />
             </div>
-            <!--info card-->
             <div
               class="poke-info-card bg-white h-100 w-100 m-0 px-2 py-3 shadow-sm"
             >
@@ -118,15 +114,13 @@
               <p id="poke-description4"></p>
             </div>
           </div>
-          <!--pokemon no.5-->
+          <!-- Pokemon no.5 -->
           <div
-            class="pokedex-card5 rounded-3 shadow container col-6 col-sm-4 col-md-3 col-lg-2 col-sm-3 d-flex flex-column align-items-center p-0"
+            class="pokedex-card5 rounded-3 shadow col-6 col-sm-4 col-md-3 col-lg-2 d-flex flex-column align-items-center p-0"
           >
-            <!--img sprite-->
             <div class="sprite">
               <img id="poke-sprite5" src="" alt="Pokemon Sprite" />
             </div>
-            <!--info card-->
             <div
               class="poke-info-card bg-white h-100 w-100 m-0 px-2 py-3 shadow-sm"
             >
@@ -139,7 +133,11 @@
       </section>
     </main>
     <footer>
-      <p class="footer text-center">@2025 PokeAPI Developer: Clein</p>
+      <p
+        class="footer text-center d-flex align-items-center justify-content-center p-1"
+      >
+        @2025 PokeAPI Developer: Clein
+      </p>
     </footer>
     <script></script>
     <!-- jQuery -->
