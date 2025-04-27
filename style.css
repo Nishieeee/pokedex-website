@@ -19,34 +19,91 @@
     --type-steel:    #B7B7CE;
     --type-fairy:    #D685AD;
   }
-.lightning-type {
-  background: var(--type-electric);
-
+/* Only for the types, no extra pokemon-card class */
+.normal-type {
+  background-color: var(--type-normal);
 }
+
 .fire-type {
   background-color: var(--type-fire);
 }
+
 .water-type {
   background-color: var(--type-water);
 }
-.grass-type {
-  background: var(--type-grass);
+
+.electric-type {
+  background-color: var(--type-electric);
 }
+
+.grass-type {
+  background-color: var(--type-grass);
+}
+
+.ice-type {
+  background-color: var(--type-ice);
+}
+
+.fighting-type {
+  background-color: var(--type-fighting);
+}
+
+.poison-type {
+  background-color: var(--type-poison);
+}
+
+.ground-type {
+  background-color: var(--type-ground);
+}
+
+.flying-type {
+  background-color: var(--type-flying);
+}
+
 .psychic-type {
   background-color: var(--type-psychic);
 }
+
+.bug-type {
+  background-color: var(--type-bug);
+}
+
+.rock-type {
+  background-color: var(--type-rock);
+}
+
+.ghost-type {
+  background-color: var(--type-ghost);
+}
+
+.dragon-type {
+  background-color: var(--type-dragon);
+}
+
+.dark-type {
+  background-color: var(--type-dark);
+}
+
+.steel-type {
+  background-color: var(--type-steel);
+}
+
+.fairy-type {
+  background-color: var(--type-fairy);
+}
+
 p {
   font-size: small;
-
+}
 span {
   font-size: small;
   padding: 2px 5px;
   border-radius: 10px;
   color: white;
-}}
+}
 main {
   height: 75vh;
-  overflow-y: scroll;
+
   background-image: url('pokeball-bg.svg');
   background-size: auto;
   background-position: 50%;
@@ -92,11 +149,7 @@ nav > a:hover {
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
   }
 
-  .types .type {
-    background-color: yellow;
-    padding: 0.25rem 0.5rem;
-    border-radius: 9999px;
-  }
+
   .stats .bar {
     height: 8px;
     background-color: #fff;
@@ -105,4 +158,11 @@ nav > a:hover {
 
 .poke-info-card {
     border-radius: 20px 20px 0 0;
+}
+.pokemon-card {
+  background-image: url('pokeball-bg.svg');
+  background-size: auto;
+  background-position: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
