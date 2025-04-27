@@ -1,0 +1,62 @@
+<div class="stats p-3 row">
+                <p class="col-6">hp: <span id="stat-hp1"></span></p>
+                <p class="col-6">attk: <span id="stat-attack1"></span></p>
+                <p class="col-6">def: <span id="stat-defense1"></span></p>
+                <p class="col-6">
+                  sp attack: <span id="stat-special_attack1"></span>
+                </p>
+                <p class="col-6">
+                  sp def: <span id="stat-special_defense1"></span>
+                </p>
+                <p class="col-6">spd: <span id="stat-speed1"></span></p>
+              </div>
+
+              $("document").ready(() => {
+                const topFive = ["greninja", "blastoise", "mewtwo", "charizard", "blaziken"];
+                let count = 1;
+                
+                topFive.forEach(pokemon => {
+                    $.getJSON(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, (data) => {
+                        let pokemonID = data.id;
+            
+                        let description = "No description available"; // Initialize description
+                        // Add type-specific class to the card
+                        $(`.pokedex-card${count}`).addClass(`${data.types[0].type.name}-type`); 
+                        
+                        // Set Pokemon name and type
+                        $(`#poke-name${count}`).text(data.name);
+                        $(`#poke-type${count}`).text(data.types[0].type.name);           
+                        
+                        // Fetch Pokémon species data to get the description
+                        $.getJSON(`https://pokeapi.co/api/v2/pokemon-species/${pokemonID}`, (speciesData) => {   
+                            const flavorText = speciesData.flavor_text_entries;
+                            let description = "No Description Available";
+                            console.log(count);
+                            // Loop through the flavor text entries to find the English description
+                            for (let i = 0; i < flavorText.length; i++) {
+                                if (flavorText[i].language.name === 'en') {
+                                    description = flavorText[i].flavor_text; // Set description if found
+                                    break; // Exit the loop once we find the description
+                                }
+                            }
+                            console.log(description);
+                            $(`#poke-description${count}`).text(description);                           
+                        });
+                        
+                        // Set the sprite image (shiny or normal)
+                        $(`#poke-sprite${count}`).attr("src", data.sprites.front_default);
+            
+                        // Set the stats
+                        data.stats.forEach(stat => {
+                            const statName = stat.stat.name.replace("-", "_"); // Replace hyphen with underscore
+                            const statValue = stat.base_stat;
+            
+                            // Set the stat value dynamically
+                            $(`#stat-${statName}${count}`).text(statValue);
+                        });
+                        console.log(count);
+                        count++; // Increment the count for the next card
+                    });
+                });
+            });
+            

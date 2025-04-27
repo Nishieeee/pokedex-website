@@ -35,12 +35,24 @@
 .psychic-type {
   background-color: var(--type-psychic);
 }
-span {
+span, p {
   font-size: smaller;
 }
 main {
-  height: 100vh;
+  height: 80vh;
+  overflow-y: scroll;
 }
+
+.pokedex-card1,
+.pokedex-card2,
+.pokedex-card3,
+.pokedex-card4,
+.pokedex-card5 {
+  width: 180px;   /* Or whatever width you want */
+  min-height: 200px; /* Or whatever height you want */
+  margin: 10px auto;
+}
+
 nav > a {
     text-decoration: none;
     color: white;
