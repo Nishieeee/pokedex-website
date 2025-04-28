@@ -104,7 +104,7 @@ async function renderPokemonCards(pokemonArray) {
 
     let typeHtml = "";
     pokemonDetails.types.forEach((typeInfo) => {
-      typeHtml += `<span class="${typeInfo.type.name}-type p-2 rounded-5 text-white">${typeInfo.type.name}</span>`;
+      typeHtml += `<span class="${typeInfo.type.name}-type p-2 rounded-4 text-white">${typeInfo.type.name}</span>`;
     });
 
     const pokemonCard = $("<div>", {
@@ -194,6 +194,7 @@ async function loadMorePokemon() {
 
 // Modal Display Function
 function showPokemonModal(pokemonData) {
+  console.log(`${data.name}`);
   console.log("Showing modal for:", pokemonData.name);
   // Check if modal exists, if not create it
   if ($("#pokemonModal").length === 0) {
@@ -347,15 +348,7 @@ function loadTopFivePokemon() {
     }, index * 300); // 300ms delay between each load for visual effect
   });
 }
-function handleSearchResultClick() {
-  console.log("Search result clicked!");
-  if (window.searchedPokemonData) {
-    console.log("Showing modal for:", window.searchedPokemonData.name);
-    showPokemonModal(window.searchedPokemonData);
-  } else {
-    console.error("No Pokémon data available");
-  }
-}
+
 // Search Function
 function setupSearch() {
   $("#searchInput").on("input", function () {
@@ -421,20 +414,20 @@ async function performSearch(query) {
           <div class="d-flex justify-content-center mb-3">
             ${typeHtml}
           </div>
-          <button class="btn btn-primary view-details" id="view-details-${
-            data.id
-          }">View Details</button>
+          <button class="btn btn-primary view-details" id="view-details">View Details</button>
         </div>
       `,
     });
-    console.log(`Data: ${data}`);
+    
     $(".all-container").append(pokemonCard);
-
+    console.log(`Data: ${data}`);
+    console.log(`${data.name}`);
     // Add click event with specific selector
-    $(`#view-details-${data.id}`).on("click", function () {
+    $("#view-details").click( () => {
       console.log("search is clicked");
       showPokemonModal(data);
     });
+
   } catch (error) {
     console.error("Search error:", error);
     $(".all-container").html(`
