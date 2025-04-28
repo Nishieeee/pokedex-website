@@ -57,12 +57,16 @@ function capitalizeFirstLetter(string) {
 }
 
 function cleanDescription(text) {
-  return text.replace(/\f/g, ' ').replace(/\n/g, ' ').replace(/\u000c/g, ' ');
+  return text
+    .replace(/\f/g, " ")
+    .replace(/\n/g, " ")
+    .replace(/\u000c/g, " ");
 }
 
 function getEnglishDescription(speciesData) {
-  if (!speciesData || !speciesData.flavor_text_entries) return "No description available";
-  
+  if (!speciesData || !speciesData.flavor_text_entries)
+    return "No description available";
+
   for (let entry of speciesData.flavor_text_entries) {
     if (entry.language.name === "en") {
       return cleanDescription(entry.flavor_text);
@@ -74,7 +78,7 @@ function getEnglishDescription(speciesData) {
 // Rendering Functions
 async function renderPokemonCards(pokemonArray) {
   const container = $(".all-container");
-  
+
   for (let i = 0; i < pokemonArray.length; i++) {
     // Create a skeleton loader first
     const skeletonId = `skeleton-${offset + i}`;
@@ -87,22 +91,22 @@ async function renderPokemonCards(pokemonArray) {
           <div class="loading-skeleton" style="width: 70%; height: 24px;"></div>
           <div class="loading-skeleton" style="width: 50%; height: 20px;"></div>
         </div>
-      `
+      `,
     });
     container.append(skeletonCard);
-    
+
     // Fetch and render actual data
     const pokemonDetails = await fetchPokemonDetails(pokemonArray[i].url);
     if (!pokemonDetails) {
       $(`#${skeletonId}`).remove();
       continue;
     }
-    
+
     let typeHtml = "";
     pokemonDetails.types.forEach((typeInfo) => {
       typeHtml += `<span class="${typeInfo.type.name}-type p-2 rounded-5 text-white">${typeInfo.type.name}</span>`;
     });
-    
+
     const pokemonCard = $("<div>", {
       class: "col-6 col-sm-5 col-md-3 col-lg-2",
       id: `pokemon-${pokemonDetails.id}`,
@@ -118,33 +122,35 @@ async function renderPokemonCards(pokemonArray) {
             ${typeHtml}
           </div>
         </div>
-      `
+      `,
     });
-    
+
     // Replace skeleton with actual card
     $(`#${skeletonId}`).replaceWith(pokemonCard);
-    
+
     // Add click event to show details
-    $(`#pokemon-${pokemonDetails.id}`).on("click", function() {
+    $(`#pokemon-${pokemonDetails.id}`).on("click", function () {
       showPokemonModal(pokemonDetails);
     });
   }
-  
-  console.log(`Rendered ${pokemonArray.length} Pokémon, total offset now: ${offset}`);
+
+  console.log(
+    `Rendered ${pokemonArray.length} Pokémon, total offset now: ${offset}`
+  );
 }
 
 // Scroll Handler
 function handleScroll() {
   if (isLoading) return;
-  
+
   // Only trigger infinite scroll if the "all" tab is visible
   if ($("#all").is(":hidden")) return;
-  
+
   const windowHeight = $(window).height();
   const scrollTop = $(window).scrollTop();
   const documentHeight = $(document).height();
   const scrollRemaining = documentHeight - (windowHeight + scrollTop);
-  
+
   if (scrollRemaining < 300) {
     loadMorePokemon();
   }
@@ -153,9 +159,9 @@ function handleScroll() {
 // Load More Pokemon
 async function loadMorePokemon() {
   if (isLoading) return;
-  
+
   isLoading = true;
-  
+
   // Add a loading indicator
   $(".all-container").append(`
     <div id="loading-indicator" class="col-12 text-center py-3">
@@ -165,13 +171,13 @@ async function loadMorePokemon() {
       <p class="mt-2">Loading more Pokémon...</p>
     </div>
   `);
-  
+
   // Fetch next batch of Pokémon
   const data = await fetchPokemonList(offset, limit);
-  
+
   // Remove loading indicator
   $("#loading-indicator").remove();
-  
+
   if (data.length > 0) {
     await renderPokemonCards(data);
     offset += limit;
@@ -182,7 +188,7 @@ async function loadMorePokemon() {
       </div>
     `);
   }
-  
+
   isLoading = false;
 }
 
@@ -207,18 +213,18 @@ function showPokemonModal(pokemonData) {
       </div>
     `);
   }
-  
+
   // Fetch additional data and populate modal
-  fetchPokemonSpecies(pokemonData.id).then(speciesData => {
+  fetchPokemonSpecies(pokemonData.id).then((speciesData) => {
     const description = getEnglishDescription(speciesData);
-    
+
     let typesHtml = "";
-    pokemonData.types.forEach(type => {
+    pokemonData.types.forEach((type) => {
       typesHtml += `<span class="${type.type.name}-type me-2">${type.type.name}</span>`;
     });
-    
+
     let statsHtml = "";
-    pokemonData.stats.forEach(stat => {
+    pokemonData.stats.forEach((stat) => {
       const statName = stat.stat.name.replace("-", " ");
       statsHtml += `
         <div class="stat-item mb-2">
@@ -229,18 +235,25 @@ function showPokemonModal(pokemonData) {
           <div class="progress" style="height: 8px;">
             <div class="progress-bar bg-danger" role="progressbar" 
                  style="width: ${Math.min(100, (stat.base_stat / 255) * 100)}%" 
-                 aria-valuenow="${stat.base_stat}" aria-valuemin="0" aria-valuemax="255"></div>
+                 aria-valuenow="${
+                   stat.base_stat
+                 }" aria-valuemin="0" aria-valuemax="255"></div>
           </div>
         </div>
       `;
     });
-    
+
     // Update modal content
     $("#modalPokemonName").text(capitalizeFirstLetter(pokemonData.name));
     $("#modalContent").html(`
       <div class="text-center mb-3">
-        <img src="${pokemonData.sprites.other['official-artwork'].front_default || pokemonData.sprites.front_default}" 
-             alt="${pokemonData.name}" class="img-fluid" style="max-height: 200px;">
+        <img src="${
+          pokemonData.sprites.other["official-artwork"].front_default ||
+          pokemonData.sprites.front_default
+        }" 
+             alt="${
+               pokemonData.name
+             }" class="img-fluid" style="max-height: 200px;">
       </div>
       <div class="mb-3 text-center">
         ${typesHtml}
@@ -259,62 +272,77 @@ function showPokemonModal(pokemonData) {
         ${statsHtml}
       </div>
     `);
-    
+
     // Show the modal
-    new bootstrap.Modal(document.getElementById('pokemonModal')).show();
+    new bootstrap.Modal(document.getElementById("pokemonModal")).show();
   });
 }
 
 // Top Five Pokemon Logic
 function loadTopFivePokemon() {
   const topFive = ["greninja", "blastoise", "mewtwo", "38", "blaziken"];
-  
+
   // Add loading indicators to each card
   for (let i = 1; i <= 5; i++) {
     $(`.pokedex-card${i}`).addClass("loading");
     $(`#poke-sprite${i}`).attr("src", "");
-    $(`#poke-name${i}`).html('<div class="loading-skeleton" style="width: 80%; height: 30px;"></div>');
-    $(`#poke-type${i}`).html('<div class="loading-skeleton" style="width: 60%; height: 20px;"></div>');
-    $(`#poke-description${i}`).html('<div class="loading-skeleton" style="width: 100%; height: 15px;"></div>'.repeat(3));
+    $(`#poke-name${i}`).html(
+      '<div class="loading-skeleton" style="width: 80%; height: 30px;"></div>'
+    );
+    $(`#poke-type${i}`).html(
+      '<div class="loading-skeleton" style="width: 60%; height: 20px;"></div>'
+    );
+    $(`#poke-description${i}`).html(
+      '<div class="loading-skeleton" style="width: 100%; height: 15px;"></div>'.repeat(
+        3
+      )
+    );
   }
-  
+
   // Process each Pokemon with a slight delay for visual effect
   topFive.forEach(async (pokemon, index) => {
     const count = index + 1;
-    
+
     // Add a slight delay for cascading effect
     setTimeout(async () => {
       try {
         // Fetch data
         const data = await fetchPokemonData(pokemon);
         const speciesData = await fetchPokemonSpecies(data.id);
-        
+
         // Get description
         const description = getEnglishDescription(speciesData);
-        
+
         // Generate HTML for types
         let typesHtml = "";
-        data.types.forEach(type => {
+        data.types.forEach((type) => {
           typesHtml += `<span class="${type.type.name}-type">${type.type.name}</span>`;
         });
-        
+
         // Update card
         $(`.pokedex-card${count}`).removeClass("loading");
-        $(`#poke-sprite${count}`).attr("src", data.sprites.other['official-artwork'].front_default || data.sprites.front_default);
+        $(`#poke-sprite${count}`).attr(
+          "src",
+          data.sprites.other["official-artwork"].front_default ||
+            data.sprites.front_default
+        );
         $(`#poke-name${count}`).text(capitalizeFirstLetter(data.name));
         $(`#poke-type${count}`).html(typesHtml);
         $(`#poke-description${count}`).text(description);
-        
+
         // Add click handler for detail view
-        $(`.pokedex-card${count}`).off("click").on("click", function() {
-          showPokemonModal(data);
-        });
-        
+        $(`.pokedex-card${count}`)
+          .off("click")
+          .on("click", function () {
+            showPokemonModal(data);
+          });
       } catch (error) {
         console.error(`Error loading top Pokémon ${pokemon}:`, error);
         $(`.pokedex-card${count}`).removeClass("loading");
         $(`#poke-name${count}`).text("Error loading");
-        $(`#poke-description${count}`).text("Could not load this Pokémon. Please try again later.");
+        $(`#poke-description${count}`).text(
+          "Could not load this Pokémon. Please try again later."
+        );
       }
     }, index * 300); // 300ms delay between each load for visual effect
   });
@@ -330,14 +358,14 @@ function handleSearchResultClick() {
 }
 // Search Function
 function setupSearch() {
-  $("#searchInput").on("input", function() {
+  $("#searchInput").on("input", function () {
     const query = $(this).val().toLowerCase().trim();
-    
+
     // Clear previous timeout
     if (searchTimeout) {
       clearTimeout(searchTimeout);
     }
-    
+
     // If query is empty, reset to "all" view
     if (query === "") {
       $(".all-container").empty();
@@ -345,7 +373,7 @@ function setupSearch() {
       loadMorePokemon();
       return;
     }
-    
+
     // Set a small timeout to prevent excessive API calls
     searchTimeout = setTimeout(() => {
       performSearch(query);
@@ -363,26 +391,29 @@ async function performSearch(query) {
       <p class="mt-2">Searching for "${query}"...</p>
     </div>
   `);
-  
+
   try {
     // Fetch the Pokemon data
     const data = await fetchPokemonData(query);
-    
+
     // Clear container and render single result
     $(".all-container").empty();
-    
+
     let typeHtml = "";
     data.types.forEach((typeInfo) => {
       typeHtml += `<span class="${typeInfo.type.name}-type me-2">${typeInfo.type.name}</span>`;
     });
-    
+
     const pokemonCard = $("<div>", {
       class: "col-sm-6 col-md-4 mx-auto",
       id: `pokemon-${data.id}`,
       html: `
         <div class="pokemon-card search-result">
           <img 
-            src="${data.sprites.other['official-artwork'].front_default || data.sprites.front_default}" 
+            src="${
+              data.sprites.other["official-artwork"].front_default ||
+              data.sprites.front_default
+            }" 
             alt="${data.name}" 
             class="img-fluid"
           >
@@ -390,19 +421,20 @@ async function performSearch(query) {
           <div class="d-flex justify-content-center mb-3">
             ${typeHtml}
           </div>
-          <button class="btn btn-primary view-details" id="view-details-${data.id}">View Details</button>
+          <button class="btn btn-primary view-details" id="view-details-${
+            data.id
+          }">View Details</button>
         </div>
-      `
+      `,
     });
     console.log(`Data: ${data}`);
     $(".all-container").append(pokemonCard);
-    
+
     // Add click event with specific selector
-    $(`#view-details-${data.id}`).on("click", function() {
+    $(`#view-details-${data.id}`).on("click", function () {
       console.log("search is clicked");
       showPokemonModal(data);
     });
-    
   } catch (error) {
     console.error("Search error:", error);
     $(".all-container").html(`
@@ -411,8 +443,8 @@ async function performSearch(query) {
         <button id="resetSearch" class="btn btn-outline-danger mt-3">Show All Pokémon</button>
       </div>
     `);
-    
-    $("#resetSearch").on("click", function() {
+
+    $("#resetSearch").on("click", function () {
       $("#searchInput").val("");
       $(".all-container").empty();
       offset = 0;
@@ -425,27 +457,27 @@ async function performSearch(query) {
 function setupTabs() {
   // Initially hide all tabs except the first one
   $(".tab-content").not(":first").hide();
-  
+
   // Handle tab clicks
-  $(".nav-link").on("click", function(e) {
+  $(".nav-link").on("click", function (e) {
     e.preventDefault();
-    
+
     // Get target tab ID
     const targetId = $(this).attr("data-target");
-    
+
     // Hide all tab content
     $(".tab-content").hide();
-    
+
     // Show selected tab content
     $(targetId).show();
-    
+
     // Update active state in navigation
     $(".nav-link").removeClass("active");
     $(this).addClass("active");
-    
+
     // Reset scroll position
     window.scrollTo(0, 0);
-    
+
     // If all tab is selected and empty, load initial data
     if (targetId === "#all" && $(".all-container").children().length === 0) {
       offset = 0;
@@ -455,21 +487,21 @@ function setupTabs() {
 }
 
 // Initialize the app
-$(document).ready(function() {
+$(document).ready(function () {
   // Default to showing the home tab
   $("#all").show();
   $("#topFive").hide();
-  
+
   // Set up event listeners
   setupTabs();
   setupSearch();
-  
+
   // Load initial data
   loadTopFivePokemon();
-  
+
   // Add scroll event listener for infinite scroll
   $(window).on("scroll", handleScroll);
-  
+
   // Make sure the first tab is active
   $(".nav-link").first().addClass("active");
 });

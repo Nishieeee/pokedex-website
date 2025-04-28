@@ -3,32 +3,32 @@
 /* ---------- Root Variables and Base Setup ---------- */
 :root {
   /* Type Colors */
-  --type-normal: #A8A77A;
-  --type-fire: #EE8130;
-  --type-water: #6390F0;
-  --type-electric: #F7D02C;
-  --type-grass: #7AC74C;
-  --type-ice: #96D9D6;
-  --type-fighting: #C22E28;
-  --type-poison: #A33EA1;
-  --type-ground: #E2BF65;
-  --type-flying: #A98FF3;
-  --type-psychic: #F95587;
-  --type-bug: #A6B91A;
-  --type-rock: #B6A136;
+  --type-normal: #a8a77a;
+  --type-fire: #ee8130;
+  --type-water: #6390f0;
+  --type-electric: #f7d02c;
+  --type-grass: #7ac74c;
+  --type-ice: #96d9d6;
+  --type-fighting: #c22e28;
+  --type-poison: #a33ea1;
+  --type-ground: #e2bf65;
+  --type-flying: #a98ff3;
+  --type-psychic: #f95587;
+  --type-bug: #a6b91a;
+  --type-rock: #b6a136;
   --type-ghost: #735797;
-  --type-dragon: #6F35FC;
+  --type-dragon: #6f35fc;
   --type-dark: #705746;
-  --type-steel: #B7B7CE;
-  --type-fairy: #D685AD;
-  
+  --type-steel: #b7b7ce;
+  --type-fairy: #d685ad;
+
   /* UI Colors */
   --primary-red: #dc3545;
   --primary-dark: #212529;
   --light-gray: #f8f9fa;
   --medium-gray: #e9ecef;
   --dark-gray: #495057;
-  
+
   /* Transitions */
   --transition-speed: 0.3s;
 }
@@ -41,7 +41,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
   background-color: var(--light-gray);
   color: var(--primary-dark);
   line-height: 1.6;
@@ -68,8 +68,12 @@ header {
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .logo h5 {
@@ -144,7 +148,12 @@ main {
   min-height: 85vh !important;
   padding: 30px 15px !important;
   overflow-x: hidden;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.8) 70%), url('pokeball-bg.svg') !important;
+  background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.8) 70%
+    ),
+    url("pokeball-bg.svg") !important;
   background-size: 500px !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -199,13 +208,13 @@ main {
 }
 
 .pokemon-card::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 40%;
-  background-image: url('pokeball-bg.svg');
+  background-image: url("pokeball-bg.svg");
   background-size: 80px;
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -289,7 +298,9 @@ section {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ---------- Top Five Pokémon Section ---------- */
@@ -341,7 +352,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('pokeball-bg.svg');
+  background-image: url("pokeball-bg.svg");
   background-size: 50%;
   background-position: 150% 50%;
   background-repeat: no-repeat;
@@ -467,46 +478,105 @@ section {
 }
 
 /* Type colors and gradients */
-.normal-type { background: linear-gradient(135deg, #A8A77A 0%, #8A8960 100%); }
-.fire-type { background: linear-gradient(135deg, #EE8130 0%, #DA6C1C 100%); }
-.water-type { background: linear-gradient(135deg, #6390F0 0%, #4A6FE3 100%); }
-.electric-type { background: linear-gradient(135deg, #F7D02C 0%, #E5BE1A 100%); }
-.grass-type { background: linear-gradient(135deg, #7AC74C 0%, #5BA52E 100%); }
-.ice-type { background: linear-gradient(135deg, #96D9D6 0%, #7BBFBD 100%); }
-.fighting-type { background: linear-gradient(135deg, #C22E28 0%, #A21D18 100%); }
-.poison-type { background: linear-gradient(135deg, #A33EA1 0%, #822A80 100%); }
-.ground-type { background: linear-gradient(135deg, #E2BF65 0%, #C6A44D 100%); }
-.flying-type { background: linear-gradient(135deg, #A98FF3 0%, #8C6FDE 100%); }
-.psychic-type { background: linear-gradient(135deg, #F95587 0%, #E43B6F 100%); }
-.bug-type { background: linear-gradient(135deg, #A6B91A 0%, #899A05 100%); }
-.rock-type { background: linear-gradient(135deg, #B6A136 0%, #988520 100%); }
-.ghost-type { background: linear-gradient(135deg, #735797 0%, #574173 100%); }
-.dragon-type { background: linear-gradient(135deg, #6F35FC 0%, #5820E3 100%); }
-.dark-type { background: linear-gradient(135deg, #705746 0%, #573F31 100%); }
-.steel-type { background: linear-gradient(135deg, #B7B7CE 0%, #9999B7 100%); }
-.fairy-type { background: linear-gradient(135deg, #D685AD 0%, #C56C96 100%); }
+.normal-type {
+  background: linear-gradient(135deg, #a8a77a 0%, #8a8960 100%);
+}
+.fire-type {
+  background: linear-gradient(135deg, #ee8130 0%, #da6c1c 100%);
+}
+.water-type {
+  background: linear-gradient(135deg, #6390f0 0%, #4a6fe3 100%);
+}
+.electric-type {
+  background: linear-gradient(135deg, #f7d02c 0%, #e5be1a 100%);
+}
+.grass-type {
+  background: linear-gradient(135deg, #7ac74c 0%, #5ba52e 100%);
+}
+.ice-type {
+  background: linear-gradient(135deg, #96d9d6 0%, #7bbfbd 100%);
+}
+.fighting-type {
+  background: linear-gradient(135deg, #c22e28 0%, #a21d18 100%);
+}
+.poison-type {
+  background: linear-gradient(135deg, #a33ea1 0%, #822a80 100%);
+}
+.ground-type {
+  background: linear-gradient(135deg, #e2bf65 0%, #c6a44d 100%);
+}
+.flying-type {
+  background: linear-gradient(135deg, #a98ff3 0%, #8c6fde 100%);
+}
+.psychic-type {
+  background: linear-gradient(135deg, #f95587 0%, #e43b6f 100%);
+}
+.bug-type {
+  background: linear-gradient(135deg, #a6b91a 0%, #899a05 100%);
+}
+.rock-type {
+  background: linear-gradient(135deg, #b6a136 0%, #988520 100%);
+}
+.ghost-type {
+  background: linear-gradient(135deg, #735797 0%, #574173 100%);
+}
+.dragon-type {
+  background: linear-gradient(135deg, #6f35fc 0%, #5820e3 100%);
+}
+.dark-type {
+  background: linear-gradient(135deg, #705746 0%, #573f31 100%);
+}
+.steel-type {
+  background: linear-gradient(135deg, #b7b7ce 0%, #9999b7 100%);
+}
+.fairy-type {
+  background: linear-gradient(135deg, #d685ad 0%, #c56c96 100%);
+}
 
 /* Type text color adjustments for readability */
-span.normal-type, span.electric-type, span.ice-type, span.ground-type,
-span.bug-type, span.fairy-type, span.steel-type {
+span.normal-type,
+span.electric-type,
+span.ice-type,
+span.ground-type,
+span.bug-type,
+span.fairy-type,
+span.steel-type {
   color: #333 !important;
 }
 
-span.fire-type, span.water-type, span.grass-type, span.fighting-type,
-span.poison-type, span.flying-type, span.psychic-type, span.rock-type,
-span.ghost-type, span.dragon-type, span.dark-type {
+span.fire-type,
+span.water-type,
+span.grass-type,
+span.fighting-type,
+span.poison-type,
+span.flying-type,
+span.psychic-type,
+span.rock-type,
+span.ghost-type,
+span.dragon-type,
+span.dark-type {
   color: white !important;
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -1000px 0; }
-  100% { background-position: 1000px 0; }
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
 }
 
 /* Loading skeleton animation */
@@ -541,7 +611,7 @@ span.ghost-type, span.dragon-type, span.dark-type {
   right: 0;
   width: 150px;
   height: 150px;
-  background-image: url('pokeball-bg.svg');
+  background-image: url("pokeball-bg.svg");
   background-size: contain;
   background-position: bottom right;
   background-repeat: no-repeat;
@@ -587,9 +657,15 @@ span.ghost-type, span.dragon-type, span.dark-type {
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /* Type badges in modal */
@@ -694,7 +770,7 @@ span.ghost-type, span.dragon-type, span.dark-type {
   .modal-title {
     font-size: 1.5rem !important;
   }
-  
+
   .modal-body .img-fluid {
     max-height: 150px !important;
   }
@@ -708,8 +784,14 @@ span.ghost-type, span.dragon-type, span.dark-type {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 /* Responsive Design Adjustments */
 @media (max-width: 992px) {
@@ -718,24 +800,24 @@ span.ghost-type, span.dragon-type, span.dark-type {
     justify-content: space-around !important;
     margin: 10px 0;
   }
-  
+
   header {
     flex-direction: column !important;
   }
-  
+
   .search {
     width: 100%;
     margin-top: 10px;
   }
-  
+
   #search-poke {
     width: 100%;
   }
-  
+
   #search-poke:focus {
     width: 100%;
   }
-  
+
   .pokedex-card1,
   .pokedex-card2,
   .pokedex-card3,
@@ -749,7 +831,7 @@ span.ghost-type, span.dragon-type, span.dark-type {
   main {
     padding: 15px !important;
   }
-  
+
   .pokemon-card img {
     width: 100px !important;
     height: 100px !important;
@@ -761,11 +843,11 @@ span.ghost-type, span.dragon-type, span.dark-type {
     padding: 6px 12px !important;
     font-size: 0.9rem !important;
   }
-  
+
   .logo h5 {
     font-size: 1.3rem !important;
   }
-  
+
   .pokedex-card1,
   .pokedex-card2,
   .pokedex-card3,
