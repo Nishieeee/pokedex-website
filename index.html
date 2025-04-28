@@ -30,15 +30,15 @@
       <nav
         class="w-25 txt-white fw-bold px-2 py-2 d-flex g-1 align-items-center justify-content-between"
       >
-        <a href="#all" id="allNav" class="nav-link txt-white fw-bold px-4 py-2">All</a>
-        <a href="#topFive" id="topFiveNav" class="nav-link txt-white fw-bold px-3 py-2">My Top 5</a>
-        <a href="#" class="nav-link txt-white fw-bold px-3 py-2">About</a>
+        <a href="#" id="allNav" class="nav-link txt-white fw-bold px-4 py-2 active" data-target="#all">All</a>
+        <a href="#" id="topFiveNav" class="nav-link txt-white fw-bold px-3 py-2" data-target="#topFive">My Top 5</a>
+        <a href="#" class="nav-link txt-white fw-bold px-3 py-2" data-target="#about">About</a>
       </nav>
       <div class="search">
         <input
           type="search"
           name="search-poke"
-          id="search-poke"
+          id="searchInput"
           class="form-control"
           placeholder="search"
         />
@@ -47,12 +47,12 @@
     </header>
 
     <main class="p-3 border">
-      <section id="all" class="all bg-white">
+      <section id="all" class="all bg-white tab-content">
         <div class="all-container row g-3">
-
+          <!-- Pokemon cards will be loaded here by JavaScript -->
         </div>
       </section>
-      <section id="topFive" class="topFive">
+      <section id="topFive" class="topFive tab-content">
         <div class="row gx-3 gy-4">
           <!-- Pokemon no.1 -->
           <div
@@ -81,9 +81,7 @@
             >
               <h2 id="poke-name2"></h2>
               <p><strong>Type:</strong> <span id="poke-type2"></span></p>
-              <p id="poke-description2">
-                big man blastoise~ big man blastoise~
-              </p>
+              <p id="poke-description2"></p>
             </div>
           </div>
           <!-- Pokemon no.3 -->
@@ -133,9 +131,19 @@
           </div>
         </div>
       </section>
+      <section id="about" class="about tab-content">
+        <div class="container">
+          <h2>About PokeDex</h2>
+          <p>A simple Pokémon encyclopedia that allows you to browse and search for Pokémon.</p>
+          <p>Data is retrieved from the <a href="https://pokeapi.co/" target="_blank">PokéAPI</a>.</p>
+        </div>
+      </section>
     </main>
-    <script></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery -->
+     
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="script.js"></script>
   </body>

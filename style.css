@@ -130,7 +130,6 @@ nav a:hover {
 }
 
 .search::before {
-  content: "🔍";
   position: absolute;
   left: 15px;
   top: 50%;
@@ -227,6 +226,8 @@ main {
   flex-wrap: wrap;
   z-index: 2;
   position: relative;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 /* Loading indicator */
@@ -490,7 +491,199 @@ span.ghost-type, span.dragon-type, span.dark-type {
   height: 16px;
   margin-bottom: 8px;
 }
+/* Modal Styling for Modern Pokédex */
+.modal-content {
+  border: none !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25) !important;
+}
 
+.modal-header {
+  background: linear-gradient(135deg, #dc3545 0%, #9a2530 100%);
+  color: white;
+  border-bottom: none !important;
+  padding: 20px 25px !important;
+  position: relative;
+}
+
+.modal-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background-image: url('pokeball-bg.svg');
+  background-size: contain;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.modal-title {
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  text-transform: capitalize;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.btn-close {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 50% !important;
+  padding: 8px !important;
+  opacity: 1 !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.btn-close:hover {
+  background-color: white !important;
+  transform: rotate(90deg);
+  transition: all 0.3s ease;
+}
+
+.modal-body {
+  padding: 25px !important;
+  background-color: #f9f9f9;
+}
+
+/* Pokemon image in modal */
+.modal-body .img-fluid {
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+  transition: transform 0.5s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Type badges in modal */
+.modal-body .me-2 {
+  margin-right: 8px !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  text-transform: capitalize;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Description */
+.modal-body p {
+  line-height: 1.7 !important;
+  font-size: 1rem !important;
+  color: #444;
+  margin-bottom: 20px !important;
+}
+
+/* Height and Weight section */
+.modal-body .row.mb-3 {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  padding: 15px 5px !important;
+  margin: 20px 0 !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.modal-body .row.mb-3 p {
+  margin-bottom: 0 !important;
+  text-align: center;
+}
+
+.modal-body strong {
+  color: #333;
+  font-weight: 600 !important;
+}
+
+/* Stats section */
+.modal-body h6 {
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  margin: 15px 0 !important;
+  color: #333;
+  position: relative;
+  padding-left: 15px;
+}
+
+.modal-body h6::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 20px;
+  background-color: #dc3545;
+  border-radius: 3px;
+}
+
+.stat-item {
+  margin-bottom: 15px !important;
+}
+
+.stat-item span {
+  font-size: 0.95rem !important;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.progress {
+  height: 10px !important;
+  border-radius: 5px !important;
+  background-color: #e9ecef !important;
+  overflow: hidden;
+  margin-top: 5px !important;
+}
+
+.progress-bar {
+  border-radius: 5px !important;
+  background: linear-gradient(90deg, #dc3545, #ff6b6b) !important;
+  transition: width 1s ease-in-out !important;
+  box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+}
+
+/* Animation for modal appearance */
+.modal.fade .modal-dialog {
+  transform: scale(0.9) !important;
+  opacity: 0;
+  transition: transform 0.3s ease-out, opacity 0.3s ease !important;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1) !important;
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .modal-title {
+    font-size: 1.5rem !important;
+  }
+  
+  .modal-body .img-fluid {
+    max-height: 150px !important;
+  }
+}
+
+/* Add this to your existing JS to trigger stat bar animation */
+.stats-animation {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 /* Responsive Design Adjustments */
 @media (max-width: 992px) {
   nav {
