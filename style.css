@@ -142,7 +142,8 @@ nav a:hover {
 /* ---------- Main Content Area ---------- */
 main {
   min-height: 85vh !important;
-  padding: 30px !important;
+  padding: 30px 15px !important;
+  overflow-x: hidden;
   background: radial-gradient(circle at center, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.8) 70%), url('pokeball-bg.svg') !important;
   background-size: 500px !important;
   background-position: center !important;
@@ -157,7 +158,21 @@ main {
 }
 
 .all-container {
-  gap: 20px !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  padding-right: 0 !important;
+  /* Reduce the left padding to balance the layout */
+  padding-left: 15px !important;
+  width: 100%;
+}
+/* Make sure cards don't overflow */
+.all-container .col-6,
+.all-container .col-sm-4,
+.all-container .col-md-3,
+.all-container .col-lg-2 {
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  margin-bottom: 20px;
 }
 
 /* Pokemon Card in All Pokemon Grid */
@@ -169,6 +184,9 @@ main {
   position: relative;
   background: white !important;
   height: 100%;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   padding: 15px !important;
   display: flex;
   flex-direction: column;
@@ -204,7 +222,16 @@ main {
   z-index: 2;
   position: relative;
 }
+/* Ensure the search results don't cause overflow */
+.search-result {
+  max-width: 100%;
+}
 
+/* Make sure section containers don't overflow */
+section {
+  width: 100%;
+  overflow-x: hidden;
+}
 .pokemon-card:hover img {
   transform: scale(1.15);
 }

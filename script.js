@@ -104,7 +104,7 @@ async function renderPokemonCards(pokemonArray) {
     });
     
     const pokemonCard = $("<div>", {
-      class: "col-6 col-sm-4 col-md-3 col-lg-2",
+      class: "col-6 col-sm-5 col-md-3 col-lg-2",
       id: `pokemon-${pokemonDetails.id}`,
       html: `
         <div class="pokemon-card">
@@ -394,11 +394,12 @@ async function performSearch(query) {
         </div>
       `
     });
-    
+    console.log(`Data: ${data}`);
     $(".all-container").append(pokemonCard);
     
     // Add click event with specific selector
     $(`#view-details-${data.id}`).on("click", function() {
+      console.log("search is clicked");
       showPokemonModal(data);
     });
     
