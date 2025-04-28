@@ -194,7 +194,7 @@ async function loadMorePokemon() {
 
 // Modal Display Function
 function showPokemonModal(pokemonData) {
-  console.log(`${data.name}`);
+  
   console.log("Showing modal for:", pokemonData.name);
   // Check if modal exists, if not create it
   if ($("#pokemonModal").length === 0) {
