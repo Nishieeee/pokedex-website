@@ -388,13 +388,16 @@ async function performSearch(query) {
   try {
     // Fetch the Pokemon data
     const data = await fetchPokemonData(query);
+    const speciesData = await fetchPokemonSpecies(data.id);
 
+    // Get description
+    const description = getEnglishDescription(speciesData);
     // Clear container and render single result
     $(".all-container").empty();
 
     let typeHtml = "";
     data.types.forEach((typeInfo) => {
-      typeHtml += `<span class="${typeInfo.type.name}-type me-2">${typeInfo.type.name}</span>`;
+      typeHtml += `<span class="${typeInfo.type.name}-type me-2 p-1 rounded-4">${typeInfo.type.name}</span>`;
     });
 
     const pokemonCard = $("<div>", {
@@ -411,19 +414,19 @@ async function performSearch(query) {
             class="img-fluid"
           >
           <h3>${capitalizeFirstLetter(data.name)}</h3>
-          <div class="d-flex justify-content-center mb-3">
+          <div class="d-flex justify-content-center mb-3 ">
             ${typeHtml}
           </div>
-          <button class="btn btn-primary view-details" id="view-details">View Details</button>
+          <p id="poke-description">${description}</p>
         </div>
       `,
     });
     
     $(".all-container").append(pokemonCard);
-    console.log(`Data: ${data}`);
-    console.log(`${data.name}`);
+    
+
     // Add click event with specific selector
-    $("#view-details").click( () => {
+    $(`#pokemon-${data.id}`).click( () => {
       console.log("search is clicked");
       showPokemonModal(data);
     });
